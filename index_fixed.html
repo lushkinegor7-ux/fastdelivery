@@ -1,0 +1,416 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Быстрая Доставка — Лендинг | Практическая работа №1</title>
+    <script type="text/javascript" src="https://gc.kis.v2.scr.kaspersky-labs.com/FD126C42-EBFA-4E12-B309-BB3FDD723AC1/main.js?attr=kAkFLl26KFYo0sknmqHNuevY8wfTBDdWcw6Jh2GEtJG2JQLCMAnnQtaBNZx5gaaBmuB1Hpsikc92iZ_Ek8HIuOYoixe-1dP-9GYgAoxBgmwtm7YJUPh5zP3vjpDNvYNJfCyNgyZRoaSKVjQk9fl_7XCUMRgjkXFq0l7Db3W0srTvG6JFGCENb5KTztkzRTqi0YOgJzHyH3o6PoBUcFDAlgoEk7GTvOkJ2d7woGax4icC8ktx2AovwXHn-5FICiB8AhLWQVF_8lXZ_MAUTZ-miGo8U8ekBnVYbvm3gKmU1v2CBmC_XKVcDdVor_9GsKJ6" charset="UTF-8"></script><link rel="stylesheet" crossorigin="anonymous" href="https://gc.kis.v2.scr.kaspersky-labs.com/E3E8934C-235A-4B0E-825A-35A08381A191/abn/main.css?attr=aHR0cHM6Ly9jaGF0Z3B0LmNvbS9iYWNrZW5kLWFwaS9lc3R1YXJ5L2NvbnRlbnQ_aWQ9ZmlsZV8wMDAwMDAwMGNjNDg3MWY0YTIyYWUwNTUxOTlhMzJmMiZmbj1pbmRleF9maXhlZC5odG1sJmNkPWF0dGFjaG1lbnQmdHM9NDk0ODg3JnA9ZnMmY2lkPTEmc2lnPWRhNDVkZTE0MGM4ZjU2MDE5MzU1M2M4Yzc1ZWY3MjM2ZTdjOGU0OWMwNGY3ZmFiZjdlYWQ4Zjc4ODAzOTEwZWUmdj0w"/><style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: #fefdf7;
+            color: #1a3a2f;
+            scroll-behavior: smooth;
+        }
+
+        /* Цвета по заданию */
+        :root {
+            --bg-green: #57bd6b;
+            --main-yellow: #a4a84a;
+            --dark-green: #2c5c46;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Шапка с меню */
+        .header {
+            background: rgba(255, 255, 248, 0.97);
+            backdrop-filter: blur(10px);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            border-bottom: 2px solid var(--main-yellow);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.03);
+        }
+        .nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 0;
+            flex-wrap: wrap;
+            gap: 15px;
+        }
+        .logo {
+            font-size: 1.8rem;
+            font-weight: 800;
+            background: linear-gradient(135deg, var(--bg-green), var(--main-yellow));
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+        .menu {
+            display: flex;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+        .menu a {
+            text-decoration: none;
+            font-weight: 600;
+            color: var(--dark-green);
+            transition: 0.2s;
+            padding: 5px 0;
+        }
+        .menu a:hover {
+            color: var(--main-yellow);
+            border-bottom: 2px solid var(--main-yellow);
+        }
+
+        .btn {
+            background: var(--main-yellow);
+            color: white;
+            padding: 10px 28px;
+            border-radius: 40px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: 0.2s;
+            display: inline-block;
+            border: none;
+            cursor: pointer;
+        }
+        .btn:hover {
+            background: #8a8e3a;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 14px rgba(164,168,74,0.3);
+        }
+        .btn-outline {
+            background: transparent;
+            border: 2px solid var(--main-yellow);
+            color: var(--main-yellow);
+        }
+        .btn-outline:hover {
+            background: var(--main-yellow);
+            color: white;
+        }
+
+        section {
+            padding: 70px 0;
+            border-bottom: 1px solid #e2e8cf;
+        }
+        .section-title {
+            font-size: 2rem;
+            margin-bottom: 35px;
+            font-weight: 700;
+            color: var(--dark-green);
+            border-left: 6px solid var(--bg-green);
+            padding-left: 20px;
+        }
+
+        .grid-2 {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+        }
+        .card {
+            background: white;
+            border-radius: 28px;
+            overflow: hidden;
+            box-shadow: 0 10px 22px rgba(0,0,0,0.05);
+            transition: 0.25s;
+            border: 1px solid #eef0dc;
+        }
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 30px rgba(0,0,0,0.1);
+        }
+        .card-icon {
+            background: var(--bg-green);
+            height: 140px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 4rem;
+        }
+        .card-content {
+            padding: 20px;
+        }
+
+        .form-box {
+            background: white;
+            border-radius: 32px;
+            padding: 30px;
+            box-shadow: 0 8px 24px rgba(0,0,0,0.05);
+            border: 1px solid #e7ecce;
+        }
+        input, select, textarea {
+            width: 100%;
+            padding: 12px 18px;
+            border-radius: 60px;
+            border: 1px solid #ced8b2;
+            margin-top: 6px;
+            font-family: inherit;
+            background: #fffefa;
+        }
+        .form-group {
+            margin-bottom: 18px;
+        }
+        label {
+            font-weight: 600;
+            color: var(--dark-green);
+        }
+
+        .track-area {
+            background: #e8f0db;
+            border-radius: 32px;
+            padding: 28px;
+        }
+        .map-mock {
+            background: #c2d1a2;
+            border-radius: 28px;
+            padding: 30px;
+            text-align: center;
+            font-size: 1.2rem;
+            margin-bottom: 20px;
+        }
+
+        .review-item {
+            background: #fffcf0;
+            border-radius: 24px;
+            padding: 18px;
+            margin-bottom: 16px;
+            border-left: 5px solid var(--bg-green);
+        }
+
+        footer {
+            background: #1a3a2f;
+            color: #d4e6d0;
+            padding: 45px 0 25px;
+        }
+
+        @media (max-width: 700px) {
+            .nav { flex-direction: column; }
+            section { padding: 45px 0; }
+        }
+    </style>
+</head>
+<body>
+
+<div class="header">
+    <div class="container nav">
+        <div class="logo">⚡ Быстрая Доставка</div>
+        <div class="menu">
+            <a href="#home">Главная</a>
+            <a href="#catalog">Каталог</a>
+            <a href="#order">Заказ</a>
+            <a href="#profile">Кабинет</a>
+            <a href="#tracking">Отследить</a>
+            <a href="#info">Условия</a>
+            <a href="#feedback">Отзывы</a>
+        </div>
+        <a href="#order" class="btn" style="padding: 8px 24px;">🚚 Заказать</a>
+    </div>
+</div>
+
+<main>
+    <!-- 1. Главная страница / Приветствие -->
+    <section id="home">
+        <div class="container">
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 40px; align-items: center;">
+                <div>
+                    <div style="background: var(--bg-green); display: inline-block; padding: 6px 18px; border-radius: 40px; font-weight: bold; margin-bottom: 20px;">⚡ Доставка 15-30 минут</div>
+                    <h1 style="font-size: 3rem; line-height: 1.2; margin-bottom: 20px;">Еда и товары <span style="color: var(--main-yellow);">быстрее ветра</span></h1>
+                    <p style="font-size: 1.2rem; margin-bottom: 25px;">Заказывайте из ресторанов и магазинов. Курьер на карте, оплата онлайн, трекинг в реальном времени.</p>
+                    <a href="#order" class="btn">Сделать заказ →</a>
+                    <a href="#catalog" class="btn-outline" style="margin-left: 15px;">Смотреть меню</a>
+                    <div style="display: flex; gap: 30px; margin-top: 40px;">
+                        <div><strong style="font-size: 1.5rem;">★ 4.9</strong><br>Рейтинг</div>
+                        <div><strong style="font-size: 1.5rem;">2000+</strong><br>Отзывов</div>
+                        <div><strong style="font-size: 1.5rem;">18 мин</strong><br>Среднее время</div>
+                    </div>
+                </div>
+                <div style="background: linear-gradient(145deg, var(--bg-green), var(--main-yellow)); border-radius: 48px; padding: 35px; text-align: center; color: white;">
+                    <div style="font-size: 5rem;">🍔🍕🥗</div>
+                    <p style="font-weight: bold; font-size: 1.3rem;">Быстрая доставка по Пензе</p>
+                    <p style="opacity: 0.9;">Цвета: #57bd6b • #a4a84a</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 2. Каталог товаров и ресторанов -->
+    <section id="catalog" style="background: #f9faf0;">
+        <div class="container">
+            <h2 class="section-title">🍽️ Каталог ресторанов и товаров</h2>
+            <div class="grid-2">
+                <div class="card"><div class="card-icon">🍣🍱</div><div class="card-content"><h3>Япошка Мама</h3><p>Сеты, роллы, сашими. Доставка 25 мин.</p><span style="color:var(--main-yellow); font-weight:bold;">★ 4.8</span></div></div>
+                <div class="card"><div class="card-icon">🍔🔥</div><div class="card-content"><h3>Beef Station</h3><p>Бургеры, фри, крафтовые соусы.</p><span>★ 4.9</span></div></div>
+                <div class="card"><div class="card-icon">🥦🛒</div><div class="card-content"><h3>Супермаркет 24/7</h3><p>Продукты, напитки, товары для дома.</p><span>⭐ 4.7</span></div></div>
+                <div class="card"><div class="card-icon">🍕🧀</div><div class="card-content"><h3>Mama Mia Pizza</h3><p>Пицца, паста, десерты. 30 мин.</p><span>⭐ 4.8</span></div></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 3. Форма заказа / оформление доставки -->
+    <section id="order">
+        <div class="container">
+            <h2 class="section-title">📝 Оформление доставки</h2>
+            <div class="form-box">
+                <form id="deliveryForm">
+                    <div class="grid-2">
+                        <div class="form-group"><label>Имя *</label><input type="text" id="name" placeholder="Егор"></div>
+                        <div class="form-group"><label>Телефон *</label><input type="tel" id="phone" placeholder="+7 900 123 45 67"></div>
+                        <div class="form-group"><label>Адрес *</label><input type="text" id="address" placeholder="ул. Пушкина, 10"></div>
+                        <div class="form-group"><label>Ресторан/магазин</label><select id="shop"><option>Япошка Мама</option><option>Beef Station</option><option>Супермаркет 24/7</option><option>Mama Mia Pizza</option></select></div>
+                        <div class="form-group"><label>Комментарий</label><textarea rows="2" placeholder="Домофон, этаж"></textarea></div>
+                        <div class="form-group"><label>Оплата</label><select><option>Картой онлайн</option><option>Наличными курьеру</option></select></div>
+                    </div>
+                    <div style="text-align: right; margin-top: 20px;"><button type="submit" id="submitOrder" class="btn">✅ Заказать</button></div>
+                    <p id="orderMsg" style="margin-top: 18px; font-weight: 500;"></p>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- 4. Личный кабинет пользователя -->
+    <section id="profile" style="background: #fefcf0;">
+        <div class="container">
+            <h2 class="section-title">👤 Личный кабинет</h2>
+            <div class="grid-2">
+                <div class="card"><div class="card-content"><h3>Лушкин Е.Р.</h3><p>📧 lushkin@fastdelivery.ru</p><p>🎁 Бонусов: 520 баллов</p><p>🚚 Заказов: 12</p><button class="btn-outline" style="margin-top: 10px; border-radius: 40px;">Редактировать</button></div></div>
+                <div class="card"><div class="card-content"><h3>Избранные адреса</h3><p>🏠 ул. Лермонтова, 12<br>🏢 Многопрофильный колледж ПГУ<br>⭐ Кафе «Встреча»</p></div></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 5. Отслеживание заказа в реальном времени -->
+    <section id="tracking">
+        <div class="container">
+            <h2 class="section-title">📍 Отслеживание заказа</h2>
+            <div class="track-area">
+                <div class="map-mock">
+                    🗺️ <strong>Карта курьера</strong><br>
+                    🚴‍♂️ <span id="trackerText">Курьер выехал, будет через 12 минут</span>
+                    <div style="background:#aebb86; border-radius: 40px; margin-top: 15px; padding: 4px;"><div style="background: var(--main-yellow); width: 55%; border-radius: 40px; color:white; padding: 6px;">⚡ 55% пути</div></div>
+                </div>
+                <p><strong>Номер отслеживания:</strong> #FD-1024-ПЕНЗА</p>
+                <button id="trackBtn" class="btn" style="background: var(--bg-green);">🔄 Обновить статус (демо)</button>
+                <p id="liveStatus" style="margin-top: 12px;">Текущий статус: 📦 Заказ готовится</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- 6. Информация о доставке, условиях, контакты -->
+    <section id="info">
+        <div class="container">
+            <h2 class="section-title">🚚 Условия и контакты</h2>
+            <div class="grid-2">
+                <div class="card"><div class="card-content"><h3>📦 Зоны доставки</h3><p>Пенза, Арбеково, ГПЗ, центр. До 2 км — 99₽, далее 30₽/км. Бесплатно от 1500₽.</p><h3 style="margin-top: 15px;">⏱ Время работы</h3><p>10:00 – 23:00, без выходных</p></div></div>
+                <div class="card"><div class="card-content"><h3>📞 Контакты поддержки</h3><p>📞 8-800-555-35-35<br>✉️ help@fastdelivery.ru<br>📍 г. Пенза, ул. Калинина, 15</p><p>Чат-бот 24/7</p></div></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 7. Форма обратной связи и отзывы -->
+    <section id="feedback">
+        <div class="container">
+            <h2 class="section-title">💬 Отзывы и обратная связь</h2>
+            <div class="grid-2">
+                <div class="form-box">
+                    <h3>Оставить отзыв</h3>
+                    <div class="form-group"><label>Ваше имя</label><input type="text" id="revName" placeholder="Анна"></div>
+                    <div class="form-group"><label>Оценка</label><select id="revRating"><option>5 ★ Отлично</option><option>4 ★ Хорошо</option><option>3 ★ Средне</option></select></div>
+                    <div class="form-group"><label>Комментарий</label><textarea id="revText" rows="3" placeholder="Очень быстрая доставка, курьер вежливый!"></textarea></div>
+                    <button id="sendRevBtn" class="btn">Отправить отзыв</button>
+                </div>
+                <div id="reviewsList">
+                    <div class="review-item"><strong>Мария К.</strong> ★★★★★<p>Заказывала пиццу — приехала горячей за 22 минуты. Очень удобно отслеживать курьера.</p></div>
+                    <div class="review-item"><strong>Дмитрий П.</strong> ★★★★☆<p>Отличный сервис, только немного задержались на 5 минут, но курьер извинился.</p></div>
+                    <div class="review-item"><strong>Екатерина В.</strong> ★★★★★<p>Лучшая доставка в Пензе! Сайт понятный, форма заказа удобная.</p></div>
+                </div>
+            </div>
+        </div>
+    </section>
+</main>
+
+<footer>
+    <div class="container">
+        <div style="display: flex; justify-content: space-between; flex-wrap: wrap; gap: 20px;">
+            <div>
+                <strong>Быстрая доставка «быстрая доставка»</strong><br>
+                Разработчик: студент группы 24КИР3 Лушкин Е.Р.<br>
+                Преподаватель: Лобкова Е.В.<br>
+                Пензенский Государственный Университет, Многопрофильный колледж
+            </div>
+            <div>
+                <strong>Проект 2026</strong><br>
+                Цель: удобная платформа для заказа доставки с минимальными сроками<br>
+                Целевая аудитория: студенты, молодые профессионалы
+            </div>
+        </div>
+        <p style="text-align: center; margin-top: 35px;">© 2026 Быстрая Доставка — всё работает быстро и надёжно</p>
+    </div>
+</footer>
+
+<script>
+    // Обработчик формы заказа
+    document.getElementById('deliveryForm').addEventListener('submit', function(event) {
+        event.preventDefault();
+
+        let name = document.getElementById('name').value.trim();
+        let phone = document.getElementById('phone').value.trim();
+        let address = document.getElementById('address').value.trim();
+        let orderMsg = document.getElementById('orderMsg');
+
+        if (!name || !phone || !address) {
+            orderMsg.innerText = '❌ Заполните все поля (имя, телефон, адрес)!';
+            orderMsg.style.color = '#b00020';
+            return;
+        }
+
+        let orderNum = Math.floor(Math.random() * 9000 + 1000);
+        orderMsg.innerHTML = `✅ Заказ №${orderNum} оформлен! Ожидайте звонка курьера. Спасибо!`;
+        orderMsg.style.color = '#2c5c46';
+
+        this.reset();
+    });
+
+    // Демо-трекинг
+    let step = 0;
+    const statusArr = ["📦 Заказ готовится в ресторане", "🏍️ Курьер забрал заказ, едет к вам", "📍 Курьер рядом, через 3 минуты", "✅ Заказ доставлен! Приятного аппетита"];
+    document.getElementById('trackBtn').addEventListener('click', function() {
+        step = (step + 1) % statusArr.length;
+        document.getElementById('liveStatus').innerHTML = statusArr[step];
+        if(step === 0) document.getElementById('trackerText').innerText = "Курьер выехал, будет через 12 минут";
+        if(step === 1) document.getElementById('trackerText').innerText = "Курьер уже в пути, ETA 7 минут";
+        if(step === 2) document.getElementById('trackerText').innerText = "Курьер рядом, через 3 минуты";
+        if(step === 3) document.getElementById('trackerText').innerText = "Доставлен! Спасибо за заказ!";
+    });
+
+    // Отзывы
+    document.getElementById('sendRevBtn').addEventListener('click', function() {
+        let nameRev = document.getElementById('revName').value.trim();
+        let rating = document.getElementById('revRating').value;
+        let comment = document.getElementById('revText').value.trim();
+        if (!comment) { alert("Напишите отзыв!"); return; }
+        if (nameRev === "") nameRev = "Гость";
+        let starsCount = rating.charAt(0);
+        let stars = "★".repeat(parseInt(starsCount));
+        let newRev = document.createElement('div');
+        newRev.className = 'review-item';
+        newRev.innerHTML = `<strong>${nameRev}</strong> ${stars}<p>${comment}</p>`;
+        document.getElementById('reviewsList').prepend(newRev);
+        document.getElementById('revName').value = '';
+        document.getElementById('revText').value = '';
+        alert("Спасибо, ваш отзыв опубликован!");
+    });
+</script>
+</body>
+</html>
